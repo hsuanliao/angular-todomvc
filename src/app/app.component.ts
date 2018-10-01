@@ -39,4 +39,10 @@ export class AppComponent {
       item => !item.isDone
     );
   }
+
+  onClearCompleted() {
+    this.todos = this.todos.filter(
+      item => !item.isDone
+    );
+  }
 }

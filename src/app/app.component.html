@@ -42,7 +42,8 @@
   <!-- This footer should hidden by default and shown when there are todos -->
   <app-footer
     *ngIf="todos.length > 0"
-    [activeTodos]="filterActiveTodos()"></app-footer>
+    [activeTodos]="filterActiveTodos()"
+    (clearCompleted)="onClearCompleted()"></app-footer>
 </section>
 <footer class="info">
   <p>Double-click to edit a todo</p>
