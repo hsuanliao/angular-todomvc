@@ -26,13 +26,16 @@
         <input class="edit" value="Create a TodoMVC template">
       </li> -->
       <li
-        *ngFor="let item of todos">
+        *ngFor="let item of todos"
+        [ngClass]="{'completed': item.isDone, 'editing': item.isEditMode}"
+        (dblclick)="onTodoItemEnterEditMode(item)"
+        (keyup.enter)="onTodoItemLeaveEditMode(item)">
         <div class="view">
-          <input class="toggle" type="checkbox">
-          <label>{{ item }}</label>
+          <input class="toggle" type="checkbox" [(ngModel)]="item.isDone">
+          <label>{{ item.value }}</label>
           <button class="destroy"></button>
         </div>
-        <input class="edit" value="{{ item }}">
+        <input class="edit" [(ngModel)]="item.value">
       </li>
     </ul>
   </section>
