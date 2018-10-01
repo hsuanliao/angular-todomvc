@@ -35,7 +35,7 @@
         <div class="view">
           <input class="toggle" type="checkbox" [(ngModel)]="item.isDone" (ngModelChange)="onTodoItemStatusChanged()">
           <label>{{ item.value | uppercase }}</label>
-          <button class="destroy"></button>
+          <button class="destroy" (click)="onRemoveTodoItem(item)"></button>
         </div>
         <input class="edit" [(ngModel)]="item.value">
       </li>

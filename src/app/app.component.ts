@@ -68,4 +68,8 @@ export class AppComponent {
   onTodoItemStatusChanged() {
     this.toggleAll = this.todos.filter(item => !item.isDone).length === 0;
   }
+
+  onRemoveTodoItem(item: Todo) {
+    this.todos.splice(this.todos.indexOf(item), 1);
+  }
 }
