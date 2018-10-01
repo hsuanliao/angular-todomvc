@@ -2,6 +2,7 @@
   <header class="header">
     <app-title></app-title>
     <input
+      [(ngModel)]="newTodoItem"
       class="new-todo"
       [placeholder]="inputHint"
       (keyup.enter)="addNewTodoItem()"
