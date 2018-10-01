@@ -33,4 +33,10 @@ export class AppComponent {
   onTodoItemLeaveEditMode(item: Todo) {
     item.isEditMode = false;
   }
+
+  filterActiveTodos() {
+    return this.todos.filter(
+      item => !item.isDone
+    );
+  }
 }
