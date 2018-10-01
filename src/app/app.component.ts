@@ -15,6 +15,7 @@ export class AppComponent {
   ];
   newTodoItem: string;
   currentStatusFilterType: string = 'All';
+  toggleAll: boolean = false;
 
   addNewTodoItem() {
     console.log('new todo is ' + this.newTodoItem);
@@ -56,5 +57,15 @@ export class AppComponent {
 
   onFilterTypeChanged(filterType: string) {
     this.currentStatusFilterType = filterType;
+  }
+
+  onToggleAllChanged() {
+    this.todos.forEach(
+      item => item.isDone = this.toggleAll
+    );
+  }
+
+  onTodoItemStatusChanged() {
+    this.toggleAll = this.todos.filter(item => !item.isDone).length === 0;
   }
 }
