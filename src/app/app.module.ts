@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { TitleComponent } from './title/title.component';
 import { FooterComponent } from './footer/footer.component';
 import { TodoStatusFilterPipe } from './shared/pipes/todo-status-filter.pipe';
+import { TodoService } from './shared/todo.service';
+import { LoggingService } from './shared/logging.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { TodoStatusFilterPipe } from './shared/pipes/todo-status-filter.pipe';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

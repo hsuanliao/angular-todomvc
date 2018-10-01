@@ -10,7 +10,7 @@ import { Todo } from '../shared/todo.model';
 export class FooterComponent implements OnInit {
   @Input() activeTodos: Todo[];
   @Output() clearCompleted = new EventEmitter<void>();
-  filterType: string = 'All';
+  filterType = 'All';
   @Output() filterTypeChanged = new EventEmitter<string>();
 
   constructor() { }
