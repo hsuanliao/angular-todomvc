@@ -4,13 +4,22 @@
   <!-- Remove this if you don't implement routing -->
   <ul class="filters">
     <li>
-      <a class="selected" href="#/">All</a>
+      <a
+        [ngClass]="{'selected': filterType === 'All'}"
+        style="cursor: pointer"
+        (click)="onFilterTypeChanged('All')">All</a>
     </li>
     <li>
-      <a href="#/active">Active</a>
+      <a
+        [ngClass]="{'selected': filterType === 'Active'}"
+        style="cursor: pointer"
+        (click)="onFilterTypeChanged('Active')">Active</a>
     </li>
     <li>
-      <a href="#/completed">Completed</a>
+      <a
+        [ngClass]="{'selected': filterType === 'Completed'}"
+        style="cursor: pointer"
+        (click)="onFilterTypeChanged('Completed')">Completed</a>
     </li>
   </ul>
   <!-- Hidden if no completed items are left ↓ -->

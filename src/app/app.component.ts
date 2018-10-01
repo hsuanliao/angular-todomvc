@@ -14,6 +14,7 @@ export class AppComponent {
     new Todo('2', true)
   ];
   newTodoItem: string;
+  currentStatusFilterType: string = 'All';
 
   addNewTodoItem() {
     console.log('new todo is ' + this.newTodoItem);
@@ -34,15 +35,26 @@ export class AppComponent {
     item.isEditMode = false;
   }
 
-  filterActiveTodos() {
-    return this.todos.filter(
-      item => !item.isDone
-    );
+  filterTodos(filterType: string) {
+    switch (filterType.toLocaleLowerCase()) {
+      case 'active':
+        return this.todos.filter(item => !item.isDone);
+
+      case 'completed':
+        return this.todos.filter(item => item.isDone);
+
+      default:
+        return this.todos;
+    }
   }
 
   onClearCompleted() {
     this.todos = this.todos.filter(
       item => !item.isDone
     );
+  }
+
+  onFilterTypeChanged(filterType: string) {
+    this.currentStatusFilterType = filterType;
   }
 }

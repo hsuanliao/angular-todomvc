@@ -5,12 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { TitleComponent } from './title/title.component';
 import { FooterComponent } from './footer/footer.component';
+import { TodoStatusFilterPipe } from './shared/pipes/todo-status-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TitleComponent,
-    FooterComponent
+    FooterComponent,
+    TodoStatusFilterPipe
   ],
   imports: [
     BrowserModule,

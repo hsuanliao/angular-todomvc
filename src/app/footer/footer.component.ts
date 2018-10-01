@@ -10,6 +10,8 @@ import { Todo } from '../shared/todo.model';
 export class FooterComponent implements OnInit {
   @Input() activeTodos: Todo[];
   @Output() clearCompleted = new EventEmitter<void>();
+  filterType: string = 'All';
+  @Output() filterTypeChanged = new EventEmitter<string>();
 
   constructor() { }
 
@@ -18,5 +20,10 @@ export class FooterComponent implements OnInit {
 
   onClearCompleted() {
     this.clearCompleted.emit();
+  }
+
+  onFilterTypeChanged(filterType: string) {
+    this.filterType = filterType;
+    this.filterTypeChanged.emit(filterType);
   }
 }
