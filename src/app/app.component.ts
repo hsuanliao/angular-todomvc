@@ -1,17 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Todo } from './shared/todo.model';
+import { TodoService } from './shared/todo.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   textHint = 'What needs to be done????';
   newTodoItemText = '';
   todos: Todo[] = [];
   isToggleAll = false;
+
+  constructor(private todoService: TodoService) {
+  }
+
+  ngOnInit() {
+    this.todos = this.todoService.getTodos();
+    this.todoService.clearCompleted
+      .subscribe(() => this.onClearCompleted());
+  }
 
   addNewTodoItem() {
     console.log('add success!' + this.newTodoItemText);

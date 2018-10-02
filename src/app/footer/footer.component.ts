@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Todo } from '../shared/todo.model';
+import { TodoService } from '../shared/todo.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,14 +9,15 @@ import { Todo } from '../shared/todo.model';
 })
 export class FooterComponent implements OnInit {
   @Input() todos: Todo[];
-  @Output() clearCompleted = new EventEmitter<void>();
+  // @Output() clearCompleted = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
   }
 
   onClearCompleted() {
-    this.clearCompleted.emit();
+    // this.clearCompleted.emit();
+    this.todoService.clearCompleted.emit();
   }
 }
