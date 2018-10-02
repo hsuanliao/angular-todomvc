@@ -26,4 +26,8 @@ export class AppComponent {
   viewTodoItem(item: Todo) {
     item.isEdit = false;
   }
+
+  onClearCompleted() {
+    this.todos = this.todos.filter(item => !item.isDone);
+  }
 }
