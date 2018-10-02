@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   textHint = 'What needs to be done????';
+
+  addNewTodoItem() {
+    console.log('add success!');
+  }
 }
