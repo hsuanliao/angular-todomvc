@@ -35,7 +35,7 @@
             [(ngModel)]="item.isDone"
             (ngModelChange)="onTodoItemStatusChanged()">
           <label>{{ item.value | uppercase }}</label>
-          <button class="destroy"></button>
+          <button class="destroy" (click)="onRemoveItem(item)"></button>
         </div>
         <input class="edit" [(ngModel)]="item.value">
       </li>
