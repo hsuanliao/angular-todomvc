@@ -8,8 +8,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   textHint = 'What needs to be done????';
   newTodoItemText = '';
+  todos: string[] = [];
 
   addNewTodoItem() {
     console.log('add success!' + this.newTodoItemText);
+    this.todos.push(this.newTodoItemText);
+    this.newTodoItemText = '';
   }
 }
