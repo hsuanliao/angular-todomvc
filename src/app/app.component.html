@@ -4,6 +4,7 @@
     <input class="new-todo"
       [placeholder]="textHint"
       (keyup.enter)="addNewTodoItem()"
+      [(ngModel)]="newTodoItemText"
       autofocus>
   </header>
   <!-- This section should be hidden by default and shown when there are todos -->
