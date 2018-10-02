@@ -11,6 +11,7 @@ export class AppComponent {
   textHint = 'What needs to be done????';
   newTodoItemText = '';
   todos: Todo[] = [];
+  isToggleAll = false;
 
   addNewTodoItem() {
     console.log('add success!' + this.newTodoItemText);
@@ -29,5 +30,13 @@ export class AppComponent {
 
   onClearCompleted() {
     this.todos = this.todos.filter(item => !item.isDone);
+  }
+
+  onToggleAll() {
+    this.todos.forEach(item => item.isDone = this.isToggleAll);
+  }
+
+  onTodoItemStatusChanged() {
+    this.isToggleAll = this.todos.filter(item => !item.isDone).length === 0;
   }
 }

@@ -9,7 +9,10 @@
   </header>
   <!-- This section should be hidden by default and shown when there are todos -->
   <section class="main">
-    <input class="toggle-all" type="checkbox">
+    <input class="toggle-all"
+      type="checkbox"
+      [(ngModel)]="isToggleAll"
+      (ngModelChange)="onToggleAll()">
     <label for="toggle-all">Mark all as complete</label>
     <ul class="todo-list" *ngIf="todos.length > 0">
       <!-- These are here just to show the structure of the list items -->
@@ -27,7 +30,10 @@
         (dblclick)="editTodoItem(item)"
         (keyup.enter)="viewTodoItem(item)">
         <div class="view">
-          <input class="toggle" type="checkbox" [(ngModel)]="item.isDone">
+          <input class="toggle"
+            type="checkbox"
+            [(ngModel)]="item.isDone"
+            (ngModelChange)="onTodoItemStatusChanged()">
           <label>{{ item.value | uppercase }}</label>
           <button class="destroy"></button>
         </div>
